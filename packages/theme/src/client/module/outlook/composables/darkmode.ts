@@ -87,7 +87,7 @@ export const setupDarkMode = (): void => {
   updateDarkModeAttr(isDarkMode);
 
   // provide global helpers
-  if (!app.config.globalProperties.$isDarkMode)
+  if (!Object.hasOwn(app.config.globalProperties, "$isDarkMode"))
     Object.defineProperties(app.config.globalProperties, {
       $isDarkMode: { get: () => isDarkMode.value },
     });
